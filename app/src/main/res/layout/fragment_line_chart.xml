@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:scrollbarFadeDuration="0"
+    android:scrollbarSize="5dp"
+    tools:context=".Monthly">
+
+    <!-- TODO: Update blank fragment layout -->
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      android:layout_marginTop="97dp">
+      <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="58dp"
+      android:orientation="horizontal">
+      <ImageButton
+          android:layout_width="50dp"
+          android:layout_height="58dp"
+          android:id="@+id/month_minus"
+          android:src="@drawable/left"
+          android:layout_marginStart="8dp"
+          />
+
+          <Button
+              android:id="@+id/btn_date"
+              android:layout_width="230dp"
+              android:layout_height="58dp"
+              android:layout_marginStart="8dp"
+              android:layout_marginTop="0dp"
+              android:background="#484851"
+              android:gravity="center"
+              android:text="2019년1월"
+              android:textColor="@android:color/white"
+              android:textSize="22sp"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent" />
+
+          <ImageButton
+              android:id="@+id/month_plus"
+              android:layout_width="50dp"
+              android:layout_height="58dp"
+              android:layout_marginEnd="8dp"
+              android:src="@drawable/right"
+              app:layout_constraintEnd_toEndOf="parent"
+              android:layout_marginStart="8dp"/>
+            </LinearLayout>
+      <android.support.v7.widget.RecyclerView
+          android:id="@+id/recyle_month"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_marginEnd="8dp"
+          android:layout_marginStart="8dp"
+          android:layout_marginTop="4dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/btn_date" />
+
+  </LinearLayout>
+</FrameLayout>
