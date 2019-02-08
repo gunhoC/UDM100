@@ -50,7 +50,7 @@ public class MonthlyClick extends Fragment implements ServerResponse {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_line_click, container, false);
-        llm = new LinearLayoutManager(getActivity());
+        llm = new LinearLayoutManager(getActivity());//
         thiss=this;
         context = getActivity();
         spinner = root.findViewById(R.id.spinner);
