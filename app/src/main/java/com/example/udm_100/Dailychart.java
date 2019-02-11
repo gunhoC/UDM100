@@ -16,41 +16,37 @@ import java.util.HashMap;
 import java.util.List;
 
 import static com.example.udm_100.MainActivity.mainActivity;
+import static com.example.udm_100.MonthlyClick.recycler;
+
+public class Dailychart extends AppCompatActivity implements ServerResponse {
 
 
-public class Dailychart extends AppCompatActivity implements ServerResponse{
-
-    private RecyclerView recycler;
     private LinearLayoutManager llm;
     private RecyclerViewAdapter_MonthlyClick recyclerViewAdapter;
-    private HashMap<String, String> parameter = new HashMap<>();
+//    private HashMap<String, String> parameter ;
 
     List<Compo_SPE> compoSPE = new ArrayList<>();
 
-    public Dailychart(HashMap<String, String> parameter){
-        this.parameter=parameter;
-        recycler = findViewById(R.id.frag_production_rv_datelist);
-        llm = new LinearLayoutManager(this);
-        recycler.addItemDecoration(new DividerItemDecoration(this,llm.getOrientation()));
-        recycler.setLayoutManager(llm);
-
-        new Server().onDb("http://192.168.0.159:4000/Monthlyclick",parameter, this);
+    public Dailychart(HashMap<String, String> parameter) {
+//        this.parameter = parameter;
+        new Server().onDb("http://192.168.0.159:4000/Monthlyclick", parameter, this);
 
     }
+
     public void listSPE(String s) {
 
         try {
             JSONArray jsonArray = new JSONArray(s);
             for (int i = 0; i < jsonArray.length(); i++) {
                 //SPE(String start, String end, int target, int total, int ok, int ng)
-                compoSPE.add(new Compo_SPE(String.valueOf(jsonArray.getJSONObject(i).get("tsstart")).substring(11,16),
-                        String.valueOf(jsonArray.getJSONObject(i).get("tsend")).substring(11,16),
-                        jsonArray.getJSONObject(i).getInt("target"),
-                        jsonArray.getJSONObject(i).getInt("total"),
-                        jsonArray.getJSONObject(i).getInt("ok"),
-                        jsonArray.getJSONObject(i).getInt("ng")));
+                compoSPE.add(new Compo_SPE(String.valueOf(jsonArray.getJSONObject(i).get("tsstart")).substring(11, 16),
+                        String.valueOf(jsonArray.getJSONObject(i).get("tsend")).substring(11, 16),
+                        jsonArray.getJSONObject(i).getInt("itargetcount"),
+                        jsonArray.getJSONObject(i).getInt("itotalcount"),
+                        jsonArray.getJSONObject(i).getInt("iokcount"),
+                        jsonArray.getJSONObject(i).getInt("ingcount")));
             }
-
+//            recycler.removeItemDecoration();
             recyclerViewAdapter = new RecyclerViewAdapter_MonthlyClick(this, compoSPE);
             recycler.setAdapter(recyclerViewAdapter);
 
@@ -58,7 +54,6 @@ public class Dailychart extends AppCompatActivity implements ServerResponse{
             e.printStackTrace();
         }
     }
-
 
 
     @Override
@@ -69,7 +64,7 @@ public class Dailychart extends AppCompatActivity implements ServerResponse{
             String code = jObject.getString("code");
 
             switch (code) {
-                case "line_Monthlyclick":
+                case "Monthlyclick":
                     listSPE(jObject.getString("data"));
                     break;
             }

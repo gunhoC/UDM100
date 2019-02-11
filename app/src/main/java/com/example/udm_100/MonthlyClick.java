@@ -32,13 +32,13 @@ public class MonthlyClick extends Fragment implements ServerResponse {
 //    private LinearLayoutManager llm;
 //    private RecyclerViewAdapter_4 recyclerViewAdapter;
     private Spinner spinner;
-    private RecyclerView recycler;
+    public static RecyclerView recycler;
     private LinearLayoutManager llm;
     private MonthlyClick thiss;
     static Context context;
     private LineChartView chart;
     private PreviewLineChartView previewlinechart;
-
+        static String car;
 
     public MonthlyClick() {
         // Required empty public constructor
@@ -59,6 +59,7 @@ public class MonthlyClick extends Fragment implements ServerResponse {
         previewlinechart = root.findViewById(R.id.chart_preview);
 
         llm = new LinearLayoutManager(getActivity());
+        llm.setOrientation(LinearLayoutManager.HORIZONTAL);
         recycler.addItemDecoration(new DividerItemDecoration(getActivity(), llm.getOrientation()));
         recycler.setLayoutManager(llm);
         final HashMap<String, String> parameter = new HashMap<>();
@@ -75,8 +76,8 @@ public class MonthlyClick extends Fragment implements ServerResponse {
                 HashMap<String, String> parameter1 = new HashMap<>();
                 parameter1.put("month", Monthly.lineDate);
                 parameter1.put("chart_line", SelectLine_3);
-                parameter1.put("chart_car", String.valueOf(spinner.getSelectedItem()));
-
+                car=String.valueOf(spinner.getSelectedItem());
+                parameter1.put("chart_car", car);
                 new Server().onDb("http://192.168.0.159:4000/date_chart",parameter1,thiss);
 
 

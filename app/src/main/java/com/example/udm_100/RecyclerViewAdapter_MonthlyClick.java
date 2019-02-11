@@ -59,10 +59,10 @@ public class RecyclerViewAdapter_MonthlyClick extends RecyclerView.Adapter<Recyc
         // 데이터 결합
         viewHolder.start.setText(data.getStart());
         viewHolder.end.setText(data.getEnd());
-        viewHolder.target.setText(data.getTarget());
-        viewHolder.oper.setText(data.getTotal());
-        viewHolder.ok.setText(data.getOk());
-        viewHolder.ng.setText(data.getNg());
+        viewHolder.target.setText(String.valueOf(data.getTarget()));
+        viewHolder.oper.setText(String.valueOf(data.getTotal()));
+        viewHolder.ok.setText(String.valueOf(data.getOk()));
+        viewHolder.ng.setText(String.valueOf(data.getNg()));
 
     }
 

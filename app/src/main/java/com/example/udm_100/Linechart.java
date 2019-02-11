@@ -19,10 +19,12 @@ import lecho.lib.hellocharts.model.PointValue;
 import lecho.lib.hellocharts.model.Viewport;
 import lecho.lib.hellocharts.util.ChartUtils;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import static com.example.udm_100.MonthlyClick.car;
 import static com.example.udm_100.RecyclerViewAdapter_Monthly.SelectLine_3;
 
 
@@ -153,12 +155,23 @@ public class Linechart implements ServerResponse{
         @Override
         public void onValueSelected(int lineIndex, int pointIndex, PointValue value) {
             int n = (int) value.getX();
-            Toast.makeText(MonthlyClick.context, n + "일", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(MonthlyClick.context, n + "일", Toast.LENGTH_SHORT).show();
 
             final HashMap<String, String> parameter = new HashMap<>();
-            parameter.put("line_name", SelectLine_3);
-            parameter.put("line_date", Monthly.lineDate);
-            parameter.put("line_day", "" + n);
+            parameter.put("line_month_name", SelectLine_3);
+          //  parameter.put("line_date", Monthly.lineDate);
+//            NumberFormat numberFormat = NumberFormat.getIntegerInstance();
+//            numberFormat.setMinimumIntegerDigits(2);
+         //   parameter.put("line_day",numberFormat.format(n));
+            String lineMonthDate = Monthly.lineDate +"-";
+            if(n<10)
+                lineMonthDate=lineMonthDate+"0"+n;
+            else
+                lineMonthDate=lineMonthDate+n;
+            parameter.put("line_month_date",lineMonthDate);
+            parameter.put("line_month_car",car);
+
+            Toast.makeText(MonthlyClick.context, lineMonthDate, Toast.LENGTH_SHORT).show();
             new Dailychart(parameter);
         }
     }
