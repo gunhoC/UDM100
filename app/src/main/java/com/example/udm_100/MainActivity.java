@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import java.util.Calendar;
+
 public class MainActivity extends AppCompatActivity implements ServerResponse {
 
 
@@ -23,6 +25,10 @@ public class MainActivity extends AppCompatActivity implements ServerResponse {
     public static int redline,blueline;
     public static MainActivity mainActivity;
 
+    public static Calendar now = Calendar.getInstance();
+    public static int currentYear;
+    public static int currentMonth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +39,9 @@ public class MainActivity extends AppCompatActivity implements ServerResponse {
         Title.setTypeface(typeface);
         blueline=100;
         redline=80;
+
+        currentYear = now.get(Calendar.YEAR);
+        currentMonth = now.get(Calendar.MONTH) + 1;
 
         fm=getFragmentManager();
         frame = fm.findFragmentById(R.id.frame);

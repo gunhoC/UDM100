@@ -12,7 +12,7 @@
         android:layout_height="200dp"
         android:orientation="vertical"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="160dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -35,7 +35,7 @@
         android:layout_height="60dp"
         android:orientation="vertical"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="350dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp">
 
@@ -55,7 +55,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="58dp"
-            android:layout_marginTop="57dp"
+            android:layout_marginTop="97dp"
             android:orientation="horizontal">
 
             <TextView
@@ -72,7 +72,7 @@
             <Spinner
                 android:id="@+id/spinner"
                 android:layout_width="200dp"
-                android:layout_height="60dp"
+                android:layout_height="65dp"
                 android:layout_weight="1"
                 android:background="@color/colorBackground">
 
@@ -83,13 +83,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="270dp"
+            android:layout_marginTop="260dp"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginLeft="8dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -100,7 +101,8 @@
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="5dp"
-                    android:text="시작" />
+                    android:text="시작"
+                    android:textColor="@android:color/white" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -110,7 +112,8 @@
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="5dp"
-                    android:text="종료" />
+                    android:text="종료"
+                    android:textColor="@android:color/white"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -126,7 +129,18 @@
                     android:layout_marginRight="8dp"
                     android:layout_marginBottom="5dp"
                     android:text="목표"
-                    android:textColor="#6d6d6d" />
+                    android:textColor="@android:color/white"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="생산"
+                    android:textColor="@android:color/white"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -136,7 +150,8 @@
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="5dp"
-                    android:text="생산" />
+                    android:text="양품"
+                    android:textColor="@android:color/white"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -146,18 +161,8 @@
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginTop="5dp"
-                    android:text="OK"
-                    android:textColor="#6d6d6d" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginTop="5dp"
-                    android:text="NG" />
+                    android:text="불량"
+                    android:textColor="@android:color/white"/>
 
             </LinearLayout>
 

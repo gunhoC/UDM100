@@ -26,7 +26,9 @@ import java.util.HashMap;
 import java.util.List;
 
 import static com.example.udm_100.ActivityDialog.button_click;
-
+import static com.example.udm_100.MainActivity.currentYear;
+import static com.example.udm_100.MainActivity.currentMonth;
+import static com.example.udm_100.MainActivity.now;
 /**
  *
  * A simple {@link Fragment} subclass.
@@ -36,9 +38,6 @@ public class Monthly extends Fragment implements ServerResponse {
     private Button btn_date;
     private LinearLayoutManager llm;
     private RecyclerViewAdapter_Monthly recyclerViewAdapter_Monthly;
-    Calendar now = Calendar.getInstance();
-    private int currentYear = now.get(Calendar.YEAR);
-    private int currentMonth = now.get(Calendar.MONTH) + 1;
     private ImageButton btn_left;
     private ImageButton btn_right;
     public static String lineDate;
@@ -95,6 +94,8 @@ public class Monthly extends Fragment implements ServerResponse {
                             connLineConfig(ActivityDialog.year, ActivityDialog.month);
                             btn_date.setText(String.format("%d년 %d월", ActivityDialog.year,
                                     ActivityDialog.month));
+                            currentMonth=ActivityDialog.month;
+                            currentYear=ActivityDialog.year;
                         }
                     }
                 });
@@ -117,13 +118,16 @@ public class Monthly extends Fragment implements ServerResponse {
                 btn_date.setText(String.format("%d년 %d월", ActivityDialog.year,
                         ActivityDialog.month));
 
+                currentMonth=ActivityDialog.month;
+                currentYear=ActivityDialog.year;
+
             }
         });
 
         btn_right.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ActivityDialog.month == 12 && ActivityDialog.year < currentYear) {
+                if (ActivityDialog.month == 12 ) {
                     ActivityDialog.year++;
                     ActivityDialog.month = 1;
                 } else if (ActivityDialog.year <= currentYear && ActivityDialog.month < 12)
@@ -132,6 +136,9 @@ public class Monthly extends Fragment implements ServerResponse {
                 connLineConfig(ActivityDialog.year, ActivityDialog.month);
                 btn_date.setText(String.format("%d년 %d월", ActivityDialog.year,
                         ActivityDialog.month));
+
+                currentMonth=ActivityDialog.month;
+                currentYear=ActivityDialog.year;
 
             }
         });
